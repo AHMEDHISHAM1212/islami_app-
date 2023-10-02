@@ -1,14 +1,23 @@
-package com.example.islamiapp.ui.home.tabs.tasbeh
+package com.example.islamiapp.ui.home.tabs.sebha
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.islamiapp.databinding.FragmentTasbehBinding
 
 class TasbehFragment : Fragment() {
     lateinit var viewBinding: FragmentTasbehBinding
+    lateinit var viewModel: SebhaViewModel
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[SebhaViewModel::class.java]
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,19 +33,15 @@ class TasbehFragment : Fragment() {
         initTasbeh()
     }
 
+    private var count = 0
     private fun initTasbeh() {
-        var tasbeh_count = 0
-        var rotateAngel = 0f
-        viewBinding.ivSebhaHeader.rotation = (rotateAngel)
-        viewBinding.tvTasbehCount.text = ("$tasbeh_count")
-        viewBinding.root.setOnClickListener {
-            it
-            tasbeh_count++
-            rotateAngel += 6
-            viewBinding.ivSebhaHeader.rotation = (rotateAngel)
-            viewBinding.tvTasbehCount.setText("$tasbeh_count")
+        viewBinding.btnTasbeh
+            .setOnClickListener {
+                viewModel.increaseCount()
+                viewBinding.tvTasbehCount.text = viewModel.count.toString()
+            }
 
-        }
+//        }
     }
 
 }

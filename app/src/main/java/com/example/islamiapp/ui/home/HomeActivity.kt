@@ -8,7 +8,7 @@ import com.example.islamiapp.databinding.ActivityHomeBinding
 import com.example.islamiapp.ui.home.tabs.hadeth.HadethFragment
 import com.example.islamiapp.ui.home.tabs.quarn.QuranFragment
 import com.example.islamiapp.ui.home.tabs.radio.RadioFragment
-import com.example.islamiapp.ui.home.tabs.tasbeh.TasbehFragment
+import com.example.islamiapp.ui.home.tabs.sebha.TasbehFragment
 
 class HomeActivity : AppCompatActivity() {
     lateinit var viewBinding: ActivityHomeBinding
